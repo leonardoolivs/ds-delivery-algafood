@@ -25,4 +25,7 @@ public class Restaurante {
     @ManyToOne
     @JoinColumn(name = "cozinha_id")
     private Cozinha cozinha;
+
+    @Embedded
+    private Endereco endereco;
 }
