@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -19,4 +21,7 @@ public class Permissao {
     private String nome;
 
     private String descricao;
+
+    @ManyToMany(mappedBy = "permissoes")
+    private List<Grupo> grupos;
 }
