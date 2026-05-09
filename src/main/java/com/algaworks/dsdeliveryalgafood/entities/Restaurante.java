@@ -47,4 +47,7 @@ public class Restaurante {
             inverseJoinColumns = @JoinColumn(name = "forma_pagamento_id"))
     private List<FormaPagamento> formasPagamento;
 
+    @OneToMany(mappedBy = "restaurantes")
+    private List<Produto> produtos;
+
 }
