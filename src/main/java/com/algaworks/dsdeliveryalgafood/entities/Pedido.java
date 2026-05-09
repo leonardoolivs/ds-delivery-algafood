@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -27,6 +29,9 @@ public class Pedido {
     private LocalDateTime dataCancelamento;
     private LocalDateTime dataEntrega;
     private StatusPedido status;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itensPedido = new ArrayList<>();
 
     @Embedded
     private Endereco endereco;
