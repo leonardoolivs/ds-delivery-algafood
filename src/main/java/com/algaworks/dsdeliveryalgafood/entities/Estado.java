@@ -17,4 +17,7 @@ public class Estado {
     private Long id;
 
     private String nome;
+
+    @OneToMany(mappedBy = "estado")
+    private Cidade cidade;
 }
