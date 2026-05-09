@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -19,5 +21,5 @@ public class Estado {
     private String nome;
 
     @OneToMany(mappedBy = "estado")
-    private Cidade cidade;
+    private List<Cidade> cidade;
 }
