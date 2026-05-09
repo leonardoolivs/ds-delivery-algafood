@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "TB_USUARIO")
+@Table(name = "TB_USUARIOS")
 public class Usuario {
 
     @Id
@@ -26,7 +26,6 @@ public class Usuario {
     private String senha;
 
     @CreationTimestamp
-    @Column(columnDefinition = "datetime")
     private LocalDateTime dataCadastro;
 
     @ManyToMany

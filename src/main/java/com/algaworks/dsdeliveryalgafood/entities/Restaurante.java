@@ -28,11 +28,9 @@ public class Restaurante {
     private BigDecimal taxaFrete;
 
     @CreationTimestamp
-    @Column(columnDefinition = "datetime")
     private LocalDateTime dataCadastro;
 
     @UpdateTimestamp
-    @Column(columnDefinition = "datetime")
     private LocalDateTime dataAtualizacao;
 
     @ManyToOne
