@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -17,4 +19,7 @@ public class FormaPagamento {
     private Long id;
 
     private String descricao;
+
+    @ManyToMany(mappedBy = "formasPagamento")
+    private List<Restaurante> restaurantes;
 }

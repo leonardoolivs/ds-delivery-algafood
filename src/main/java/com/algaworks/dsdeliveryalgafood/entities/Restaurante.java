@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Entity
@@ -28,4 +29,10 @@ public class Restaurante {
 
     @Embedded
     private Endereco endereco;
+
+    @ManyToMany
+    @JoinTable(name = "TB_RESTAURANTE_FORMAS_PAGAMENTO",
+            joinColumns = @JoinColumn(name = "restaurante_id"),
+            inverseJoinColumns = @JoinColumn(name = "forma_pagamento_id"))
+    private List<FormaPagamento> formasPagamento;
 }
