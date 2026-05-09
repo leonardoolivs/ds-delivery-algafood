@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,6 +23,9 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+
+    @CreationTimestamp
+    @Column(columnDefinition = "datetime")
     private LocalDateTime dataCadastro;
 
     @ManyToMany
