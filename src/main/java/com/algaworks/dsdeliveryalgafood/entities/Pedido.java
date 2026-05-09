@@ -26,4 +26,5 @@ public class Pedido {
     private LocalDateTime dataConfirmacao;
     private LocalDateTime dataCancelamento;
     private LocalDateTime dataEntrega;
+    private StatusPedido status;
 }
