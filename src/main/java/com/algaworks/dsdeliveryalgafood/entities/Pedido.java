@@ -27,4 +27,7 @@ public class Pedido {
     private LocalDateTime dataCancelamento;
     private LocalDateTime dataEntrega;
     private StatusPedido status;
+
+    @Embedded
+    private Endereco endereco;
 }
