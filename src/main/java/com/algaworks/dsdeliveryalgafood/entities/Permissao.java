@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -23,5 +24,5 @@ public class Permissao {
     private String descricao;
 
     @ManyToMany(mappedBy = "permissoes")
-    private List<Grupo> grupos;
+    private List<Grupo> grupos = new ArrayList<>();
 }

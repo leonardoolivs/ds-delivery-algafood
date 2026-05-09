@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -21,5 +22,5 @@ public class Estado {
     private String nome;
 
     @OneToMany(mappedBy = "estado")
-    private List<Cidade> cidade;
+    private List<Cidade> cidade = new ArrayList<>();
 }

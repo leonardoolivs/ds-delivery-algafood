@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -45,9 +46,9 @@ public class Restaurante {
     @JoinTable(name = "TB_RESTAURANTE_FORMAS_PAGAMENTO",
             joinColumns = @JoinColumn(name = "restaurante_id"),
             inverseJoinColumns = @JoinColumn(name = "forma_pagamento_id"))
-    private List<FormaPagamento> formasPagamento;
+    private List<FormaPagamento> formasPagamento = new ArrayList<>();
 
-    @OneToMany(mappedBy = "restaurantes")
-    private List<Produto> produtos;
+    @OneToMany(mappedBy = "restaurante")
+    private List<Produto> produtos = new ArrayList<>();
 
 }
