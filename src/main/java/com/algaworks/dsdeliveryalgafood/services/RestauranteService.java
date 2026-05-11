@@ -1,5 +1,6 @@
 package com.algaworks.dsdeliveryalgafood.services;
 
+import com.algaworks.dsdeliveryalgafood.entities.Cozinha;
 import com.algaworks.dsdeliveryalgafood.entities.Restaurante;
 import com.algaworks.dsdeliveryalgafood.exceptions.EntityNotFoundException;
 import com.algaworks.dsdeliveryalgafood.repositories.CozinhaRepository;
@@ -16,8 +17,14 @@ public class RestauranteService {
 
     private final RestauranteRepository repository;
 
+    private final CozinhaService cozinhaService;
+
     @Transactional
     public Restaurante cadastrar(Restaurante restaurante){
+        Cozinha cozinha = cozinhaService.buscarPorId(restaurante.getCozinha().getId());
+
+        restaurante.setCozinha(cozinha);
+
         return repository.save(restaurante);
     }
 
