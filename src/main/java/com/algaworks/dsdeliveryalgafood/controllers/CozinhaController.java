@@ -1,5 +1,6 @@
 package com.algaworks.dsdeliveryalgafood.controllers;
 
+import com.algaworks.dsdeliveryalgafood.dtos.CozinhaDTO;
 import com.algaworks.dsdeliveryalgafood.entities.Cozinha;
 import com.algaworks.dsdeliveryalgafood.services.CozinhaService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,9 +21,9 @@ public class CozinhaController {
     private final CozinhaService service;
 
     @PostMapping
-    public ResponseEntity<Cozinha> cadastrar(@RequestBody Cozinha cozinha){
+    public ResponseEntity<Cozinha> cadastrar(@RequestBody CozinhaDTO dto){
 
-        cozinha = service.cadastrar(cozinha);
+        Cozinha cozinha = service.cadastrar(dto);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}").buildAndExpand(cozinha.getId()).toUri();
 
@@ -43,7 +44,7 @@ public class CozinhaController {
         return ResponseEntity.ok(cozinhas);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void remover(@PathVariable Long id){
         Cozinha cozinha = service.buscarPorId(id);
 

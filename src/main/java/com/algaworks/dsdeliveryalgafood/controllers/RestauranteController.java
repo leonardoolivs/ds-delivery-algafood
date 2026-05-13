@@ -1,5 +1,6 @@
 package com.algaworks.dsdeliveryalgafood.controllers;
 
+import com.algaworks.dsdeliveryalgafood.dtos.RestauranteDTO;
 import com.algaworks.dsdeliveryalgafood.entities.Restaurante;
 import com.algaworks.dsdeliveryalgafood.services.CozinhaService;
 import com.algaworks.dsdeliveryalgafood.services.RestauranteService;
@@ -21,11 +22,11 @@ public class RestauranteController {
     private final RestauranteService service;
 
     @PostMapping
-    public ResponseEntity<Restaurante> cadastrar(@RequestBody Restaurante restaurante){
+    public ResponseEntity<Restaurante> cadastrar(@RequestBody RestauranteDTO dto){
 
-        restaurante = service.cadastrar(restaurante);
+        Restaurante restaurante = service.cadastrar(dto);
 
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}").buildAndExpand(restaurante.getId()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(restaurante.getId()).toUri();
 
         return ResponseEntity.created(uri).body(restaurante);
     }

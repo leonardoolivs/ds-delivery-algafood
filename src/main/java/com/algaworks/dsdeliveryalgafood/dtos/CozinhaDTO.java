@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CozinhaDTO {
 
+    private Long id;
     private String nome;
 
 }
