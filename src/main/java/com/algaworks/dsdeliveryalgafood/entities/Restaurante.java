@@ -27,6 +27,8 @@ public class Restaurante {
 
     private BigDecimal taxaFrete;
 
+    private Boolean aberto = Boolean.TRUE;
+
     @CreationTimestamp
     private LocalDateTime dataCadastro;
 
