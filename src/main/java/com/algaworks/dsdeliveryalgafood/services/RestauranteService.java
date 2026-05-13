@@ -49,4 +49,12 @@ public class RestauranteService {
 
         repository.delete(restaurante);
     }
+
+    @Transactional
+    public void mudarStatusFecharAbrir(Long id){
+        Restaurante restaurante = repository.findById(id).orElseThrow(
+                () ->  new EntityNotFoundException("Restaurante de id " + id + " não existe"));
+
+        restaurante.setAberto(!restaurante.getAberto());
+    }
 }
