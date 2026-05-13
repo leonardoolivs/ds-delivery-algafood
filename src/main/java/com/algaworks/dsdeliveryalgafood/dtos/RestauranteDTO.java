@@ -17,5 +17,6 @@ public class RestauranteDTO {
     private BigDecimal taxaFrete;
     private Boolean aberto;
     private Long cozinhaId;
+    private EnderecoDTO endereco;
 
 }
