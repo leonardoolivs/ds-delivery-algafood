@@ -1,5 +1,6 @@
 package com.algaworks.dsdeliveryalgafood.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class FormaPagamento {
 
     private String descricao;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "formasPagamento")
     private List<Restaurante> restaurantes = new ArrayList<>();
 }

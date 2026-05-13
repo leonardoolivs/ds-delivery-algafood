@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class FormaPagamentoDTO {
 
     private Long id;
-    private String nome;
+    private String descricao;
 
 }
