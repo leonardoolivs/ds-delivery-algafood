@@ -27,7 +27,7 @@ public class Restaurante {
 
     private BigDecimal taxaFrete;
 
-    private Boolean aberto = Boolean.TRUE;
+    private Boolean aberto;
 
     @CreationTimestamp
     private LocalDateTime dataCadastro;
@@ -50,5 +50,10 @@ public class Restaurante {
 
     @OneToMany(mappedBy = "restaurante")
     private List<Produto> produtos = new ArrayList<>();
+
+    @PrePersist
+    public void persist(){
+        aberto = Boolean.TRUE;
+    }
 
 }

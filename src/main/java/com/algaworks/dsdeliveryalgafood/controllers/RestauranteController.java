@@ -5,6 +5,7 @@ import com.algaworks.dsdeliveryalgafood.entities.Restaurante;
 import com.algaworks.dsdeliveryalgafood.services.CozinhaService;
 import com.algaworks.dsdeliveryalgafood.services.RestauranteService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class RestauranteController {
     private final RestauranteService service;
 
     @PostMapping
-    public ResponseEntity<Restaurante> cadastrar(@RequestBody RestauranteDTO dto){
+    public ResponseEntity<Restaurante> cadastrar(@RequestBody @Valid RestauranteDTO dto){
 
         Restaurante restaurante = service.cadastrar(dto);
 
@@ -50,6 +51,13 @@ public class RestauranteController {
         Restaurante restaurante = service.buscarPorId(id);
 
         service.remover(restaurante.getId());
+    }
+
+    @PatchMapping("/{id}/fecharabrir")
+    public void mudarStatusFecharAbrir(@PathVariable Long id){
+        Restaurante restaurante = service.buscarPorId(id);
+
+        service.mudarStatusFecharAbrir(id);
     }
 
 }
