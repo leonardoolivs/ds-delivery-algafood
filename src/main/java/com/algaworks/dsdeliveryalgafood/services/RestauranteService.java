@@ -1,6 +1,7 @@
 package com.algaworks.dsdeliveryalgafood.services;
 
 import com.algaworks.dsdeliveryalgafood.dtos.RestauranteDTO;
+import com.algaworks.dsdeliveryalgafood.entities.Cidade;
 import com.algaworks.dsdeliveryalgafood.entities.Cozinha;
 import com.algaworks.dsdeliveryalgafood.entities.Restaurante;
 import com.algaworks.dsdeliveryalgafood.exceptions.EntityNotFoundException;
@@ -19,14 +20,17 @@ public class RestauranteService {
 
     private final RestauranteRepository repository;
     private final CozinhaService cozinhaService;
+    private final CidadeService cidadeService;
     private final ModelMapper mapper;
 
     @Transactional
     public Restaurante cadastrar(RestauranteDTO dto){
         Cozinha cozinha = cozinhaService.buscarPorId(dto.getCozinhaId());
+        Cidade cidade = cidadeService.buscarPorId(dto.getEndereco().getCidade().getId());
 
         Restaurante restaurante = mapper.map(dto, Restaurante.class);
         restaurante.setCozinha(cozinha);
+        restaurante.getEndereco().setCidade(cidade);
 
         return repository.save(restaurante);
     }
