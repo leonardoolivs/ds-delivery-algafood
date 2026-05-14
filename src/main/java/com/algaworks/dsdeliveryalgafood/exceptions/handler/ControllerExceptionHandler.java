@@ -1,6 +1,7 @@
 package com.algaworks.dsdeliveryalgafood.exceptions.handler;
 
 import com.algaworks.dsdeliveryalgafood.exceptions.EntityNotFoundException;
+import com.algaworks.dsdeliveryalgafood.exceptions.RegraDeNegocioException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,15 @@ public class ControllerExceptionHandler {
 
         HttpStatus status = HttpStatus.CONFLICT;
         ApiError apiError = new ApiError(Instant.now(), status.value(), "Não é possível excluir porque esta sendo utilizado em outro lugar", request.getRequestURI());
+
+        return ResponseEntity.status(status).body(apiError);
+    }
+
+    @ExceptionHandler(RegraDeNegocioException.class)
+    public ResponseEntity<ApiError> dataIntegrityViolation(RegraDeNegocioException e, HttpServletRequest request){
+
+        HttpStatus status = HttpStatus.UNPROCESSABLE_CONTENT;
+        ApiError apiError = new ApiError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
 
         return ResponseEntity.status(status).body(apiError);
     }
