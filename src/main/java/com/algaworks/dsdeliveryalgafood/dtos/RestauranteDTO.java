@@ -18,5 +18,6 @@ public class RestauranteDTO {
     private Boolean aberto;
     private Long cozinhaId;
     private EnderecoDTO endereco;
+    private FormaPagamentoDTO formaPagamento;
 
 }

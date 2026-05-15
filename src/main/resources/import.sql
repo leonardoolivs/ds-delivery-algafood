@@ -8,3 +8,13 @@ insert into TB_CIDADE (nome) values ('Complexo do Alemão');
 
 insert into TB_ESTADO (nome) values ('São Paulo');
 insert into TB_ESTADO (nome) values ('Rio de Janeiro');
+
+insert into TB_FORMA_PAGAMENTO (descricao) values ('Crédito');
+insert into TB_FORMA_PAGAMENTO (descricao) values ('Débito');
+insert into TB_FORMA_PAGAMENTO (descricao) values ('Pix');
+insert into TB_FORMA_PAGAMENTO (descricao) values ('Dinheiro');
+
+insert into TB_USUARIO (nome, email, senha) values ('Leonardo', 'leonardo@hotmail.com', 'leonardo123');
+insert into TB_USUARIO (nome, email, senha) values ('Fernando', 'fernando@hotmail.com', 'fernando123');
+insert into TB_USUARIO (nome, email, senha) values ('Flavio', 'flavio@hotmail.com', 'flavio123');
+
