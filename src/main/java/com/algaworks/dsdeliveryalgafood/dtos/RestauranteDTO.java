@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -18,6 +19,6 @@ public class RestauranteDTO {
     private Boolean aberto;
     private Long cozinhaId;
     private EnderecoDTO endereco;
-    private FormaPagamentoDTO formaPagamento;
+    private Set<FormaPagamentoDTO> formaPagamento;
 
 }

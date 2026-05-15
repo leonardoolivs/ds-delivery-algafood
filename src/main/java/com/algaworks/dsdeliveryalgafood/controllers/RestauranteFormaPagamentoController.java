@@ -21,7 +21,7 @@ public class RestauranteFormaPagamentoController {
         return service.buscarFormasPagamentoDoRestaurante(restauranteId);
     }
 
-    @PostMapping("/{formaPagamentoId}")
+    @PutMapping("/{formaPagamentoId}")
     public void adicionarFormaPagamentoDoRestaurante(@PathVariable Long restauranteId, @PathVariable Long formaPagamentoId){
         service.adicionarFormaPagamentoDoRestaurante(restauranteId, formaPagamentoId);
     }
