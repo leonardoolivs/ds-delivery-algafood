@@ -1,5 +1,6 @@
 package com.algaworks.dsdeliveryalgafood.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class Permissao {
 
     private String descricao;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "permissoes")
     private List<Grupo> grupos = new ArrayList<>();
 }
