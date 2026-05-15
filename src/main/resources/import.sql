@@ -18,3 +18,8 @@ insert into TB_USUARIO (nome, email, senha) values ('Leonardo', 'leonardo@hotmai
 insert into TB_USUARIO (nome, email, senha) values ('Fernando', 'fernando@hotmail.com', 'fernando123');
 insert into TB_USUARIO (nome, email, senha) values ('Flavio', 'flavio@hotmail.com', 'flavio123');
 
+insert into TB_PERMISSAO (nome, descricao) values ('CONSULTAR_COZINHAS', 'Permite consultar cozinhas');
+insert into TB_PERMISSAO (nome, descricao) values ('EDITAR_COZINHAS', 'Permite editar cozinhas');
+
+insert into TB_GRUPO (nome) values ('Gerente');
+insert into TB_GRUPO (nome) values ('Vendedor');

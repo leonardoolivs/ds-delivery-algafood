@@ -61,6 +61,17 @@ public class Restaurante {
         this.formasPagamento.remove(formaPagamento);
     }
 
+    public void adicionarProduto(Produto produto){
+        produto.setRestaurante(this);
+        this.produtos.add(produto);
+    }
+
+    public void removerProduto(Produto produto){
+        produto.setRestaurante(null);
+        this.produtos.remove(produto);
+    }
+
+
     @PrePersist
     public void persist(){
         aberto = Boolean.TRUE;
